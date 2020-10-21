@@ -18,14 +18,40 @@ $(document).ready(function(){
 });
 
 function habilitarDNI(){
-  var radios = document.querySelectorAll('[customRadioInline1]');
+  var radios = document.querySelectorAll('[name=customRadioInline1]');
   Array.from(radios).forEach(function(r){
     r.addEventListener('click', function(){
-      var elemento = document.getElementById('RUTSubmit');
-      if(this.id == 'RUTSubmit')
+      var elemento = document.getElementById('DNIText');
+      if(this.id == 'DNISubmit')
+      {
         elemento.removeAttribute('disabled');
+        elemento.setAttribute('required', 'required');
+      }
       else
+      {
         elemento.setAttribute('disabled', 'disabled');
+        elemento.removeAttribute('required');
+      }
     });
-});
+  });
+}
+
+
+function habilitarRUT(){
+  var radios = document.querySelectorAll('[name=customRadioInline1]');
+  Array.from(radios).forEach(function(r){
+    r.addEventListener('click', function(){
+      var elemento = document.getElementById('RUTText');
+      if(this.id == 'RUTSubmit')
+      {
+        elemento.removeAttribute('disabled');
+        elemento.setAttribute('required', 'required');
+      }
+      else
+      {
+        elemento.setAttribute('disabled', 'disabled');
+        elemento.removeAttribute('required');
+      }
+    });
+  });
 }
